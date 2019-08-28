@@ -2,7 +2,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Revery CI
+    name: ${{ github.repository }} ${{ github.repository.name }} GITHUB_REPOSITORY CI
     
     runs-on: ${{ matrix.os }}
     
@@ -18,6 +18,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node_version }}
+    - name: dump variable
+      run: ${{ github.repository }} ${{ github.repository.name }} GITHUB_REPOSITORY $GITHUB_REPOSITORY CI
     - name: install esy
       run: |
         npm install -g esy
@@ -30,5 +32,8 @@ jobs:
     - name: Building Revery
       run: |
         esy build
+    - name: Building test
+      run: |
+        esy build dune build test/test.exe
       env:
         CI: true
