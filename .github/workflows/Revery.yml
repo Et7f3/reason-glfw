@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
     - name: dump variable
-      run: ${{ github.repository }} ${{ github.repository.name }} GITHUB_REPOSITORY $GITHUB_REPOSITORY CI
+      run: echo ${{ github.repository }} ${{ github.repository.name }} GITHUB_REPOSITORY $GITHUB_REPOSITORY CI
     - name: install esy
       run: |
         npm install -g esy
