@@ -2,7 +2,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: ${{ github.repository }} ${{ github.repository.name }} GITHUB_REPOSITORY CI
+    name: ${{ github_repository }} ${{ github_repository.name }} GITHUB_REPOSITORY CI
     
     runs-on: ${{ matrix.os }}
     
@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }} on ${{ matrix.os}}
+    - name: Use Node.js ${{ matrix.node_version }} on ${{ matrix.os }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node_version }}
