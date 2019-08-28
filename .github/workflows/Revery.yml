@@ -2,7 +2,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: ${{ github_repository }} ${{ github_repository.name }} GITHUB_REPOSITORY CI
+    name: $GITHUB_REPOSITORY ${{ GITHUB_REPOSITORY }} CI
     
     runs-on: ${{ matrix.os }}
     
